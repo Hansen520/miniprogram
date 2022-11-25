@@ -1,0 +1,5 @@
+<!--pages/posts/posts.wxml-->
+<view>
+  <switch>
+  </switch>
+</view>
