@@ -3,7 +3,7 @@
     "pages/posts/posts",
     "pages/welcome/welcome"
   ],
-  "entryPagePath": "pages/welcome/welcome",
+  "entryPagePath": "pages/posts/posts",
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#c22a1e",

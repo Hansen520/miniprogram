@@ -1,5 +1,14 @@
 <!--pages/posts/posts.wxml-->
 <view>
-  <switch>
-  </switch>
+  <swiper>
+    <swiper-item>
+      <image src="/images/avatar/verifyImg1.jpg"></image>
+    </swiper-item>
+    <swiper-item>
+      <image>12</image>
+    </swiper-item>
+    <swiper-item>
+      <image>45</image>
+    </swiper-item>
+  </swiper>
 </view>
