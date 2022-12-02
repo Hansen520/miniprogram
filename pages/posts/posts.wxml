@@ -1,14 +1,31 @@
 <!--pages/posts/posts.wxml-->
 <view>
-  <swiper>
-    <swiper-item>
-      <image src="/images/avatar/verifyImg1.jpg"></image>
-    </swiper-item>
-    <swiper-item>
-      <image>12</image>
-    </swiper-item>
-    <swiper-item>
-      <image>45</image>
-    </swiper-item>
-  </swiper>
+  <view>
+    <swiper interval="{{3000}}" indicator-dots="{{true}}" autoplay="{{true}}">
+      <swiper-item>
+        <image src="https://picsum.photos/501/300.jpg"></image>
+      </swiper-item>
+      <swiper-item>
+        <image src="https://picsum.photos/500/300.jpg"></image>
+      </swiper-item>
+      <swiper-item>
+        <image src="https://picsum.photos/505/300.jpg"></image>
+      </swiper-item>
+    </swiper>
+  </view>
+  <view>
+    <view>
+      <image src="https://picsum.photos/505/301.jpg"></image>
+      <text>Nov 18 2022</text>
+    </view>
+    <text>2022LPL夏季侯赛关键养分</text>
+    <image src="https://picsum.photos/505/302.jpg"></image>
+    <text>8月10日后，我们一起做了很多的东西以及布吉城管</text>
+    <view>
+      <image src="/images/icon/chat.png"></image>
+      <text>92</text>
+      <image src="/images/icon/view.png"></image>
+      <text>102</text>
+    </view>
+  </view>
 </view>
