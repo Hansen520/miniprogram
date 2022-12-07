@@ -8,6 +8,18 @@ Page({
 
   },
 
+  onTab() {
+    console.log(111111);
+    wx.redirectTo({
+      url: '/pages/posts/posts',
+    })
+  },
+  onViewTap: function(params) {
+    console.log("on tap View");
+  },
+  onTextTap: function(params) {
+    console.log("on tap Text");
+  },
   /**
    * 生命周期函数--监听页面加载
    */
