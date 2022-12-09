@@ -1,5 +1,8 @@
 <view class="container">
-  <image class="head-image" src="{{postData.headImgSrc}}"></image>
+  <image class="head-image" src="{{postData.headImgSrc}}" />
+  <image wx:if="{{!isPlaying}}" capture-bind:tap="onMusicStart" class="audio" src="/images/music/music-start.png" />
+  <image wx:else capture-bind:tap="onMusicStop" class="audio" src="/images/music/music-stop.png"/>
+
   <view class="author-date">
     <image class="avatar" src="{{postData.avatar}}"></image>
     <text class="author">{{postData.author}}</text>
@@ -11,7 +14,7 @@
     <view class="circle">
       <image wx:if="{{collected}}" bind:tap="onCollect" src="/images/icon/collection.png"></image>
       <image wx:else bind:tap="onCollect" src="/images/icon/collection-anti.png"></image>
-      <image src="/images/icon/share.png"></image>
+      <image capture-bind:tap="onShare" src="/images/icon/share.png"></image>
     </view>
     <view class="horizon"></view>
   </view>

@@ -7,8 +7,10 @@ Page({
   data: {
     postData: {},
     _pid: null,
+    isPlaying: false,
     collected: false,
     _postsCollected: {},
+    _mgr: null
   },
 
   /**
@@ -28,6 +30,10 @@ Page({
       postData: postList[options.pid],
       collected
     });
+    const mgr = wx.getBackgroundAudioManager()
+    this.data._mgr = mgr;
+    mgr.onPlay(this.onMusicStart)
+    mgr.onStop(this.onMusicStop)
   },
   onCollect(event) {
     const postsCollected = this.data._postsCollected
@@ -37,7 +43,43 @@ Page({
     })
 
     wx.setStorageSync('posts_collected',postsCollected)
-    
+    wx.showToast({
+      title: this.data.collected ? '收藏成功' : '取消收藏',
+      duration: 2000
+    })
+  },
+  /*
+    分享
+  */
+  onShare() {
+    wx.showActionSheet({
+      itemList: ['分享到QQ', '分享到微信', '分享到朋友圈'],
+      success(res) {
+        console.log(res);
+      }
+    })
+  },
+  /*
+    播放音乐
+  */
+  onMusicStart(event) {
+    const mgr = this.data._mgr;
+    mgr.onPlay(() => {
+      console.log(123)
+    })
+    mgr.src = postList[0].music.url;
+    mgr.title = postList[0].music.title;
+    mgr.coverImgUrl = postList[this.data._pid].music.coverImgUrl
+    this.setData({
+      isPlaying: true
+    });
+  },
+  onMusicStop(event) {
+    const mgr = this.data._mgr;
+    mgr.stop();
+    this.setData({
+      isPlaying: false
+    });
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

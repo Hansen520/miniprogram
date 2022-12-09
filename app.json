@@ -11,6 +11,7 @@
     "navigationBarTitleText": "Weixin",
     "navigationBarTextStyle": "black"
   },
+  "requiredBackgroundModes": ["audio", "location"],
   "usingComponents": {
     "l-icon": "/miniprogram_npm/lin-ui/icon/index"
   },
