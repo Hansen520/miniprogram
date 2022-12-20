@@ -1,6 +1,8 @@
 // app.ts
 App({
   globalData: {},
+  gIsPlayingMusic:false,
+  gIsplayingPostId: -1,
   onLaunch() {
     // 展示本地存储能力
     const logs = wx.getStorageSync('logs') || []

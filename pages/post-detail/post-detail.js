@@ -1,5 +1,7 @@
 // pages/post-detail.js
 import { postList } from '../../data/data.js'
+const app = getApp();
+
 Page({
   /**
    * 页面的初始数据
@@ -28,12 +30,15 @@ Page({
     }
     this.setData({
       postData: postList[options.pid],
-      collected
+      collected,
+      isPlaying: app.gIsPlayingMusic
     });
+    /* 调用音乐播放器原生方法 */
     const mgr = wx.getBackgroundAudioManager()
     this.data._mgr = mgr;
     mgr.onPlay(this.onMusicStart)
-    mgr.onStop(this.onMusicStop)
+    // mgr.onStop(this.onMusicStop)
+    mgr.onPause(this.onMusicStop);
   },
   onCollect(event) {
     const postsCollected = this.data._postsCollected
@@ -70,13 +75,15 @@ Page({
     mgr.src = postList[0].music.url;
     mgr.title = postList[0].music.title;
     mgr.coverImgUrl = postList[this.data._pid].music.coverImgUrl
+    app.gIsPlayingMusic = true;
     this.setData({
       isPlaying: true
     });
   },
   onMusicStop(event) {
     const mgr = this.data._mgr;
-    mgr.stop();
+    mgr.pause();
+    app.gIsPlayingMusic = false;
     this.setData({
       isPlaying: false
     });
